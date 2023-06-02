@@ -1,0 +1,10 @@
+App\Entity\Coach:
+  attributes:
+    id:
+      groups: ['laliga']
+    name:
+      groups: ['laliga']
+    salary:
+      groups: ['laliga']
+    club:
+      groups: ['laliga']

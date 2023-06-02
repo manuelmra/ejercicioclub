@@ -1,0 +1,10 @@
+App\Entity\Club:
+  attributes:
+    id:
+      groups: ['laliga']
+    name:
+      groups: ['laliga']
+    budget:
+      groups: ['laliga']
+    players:
+      groups: ['laliga']

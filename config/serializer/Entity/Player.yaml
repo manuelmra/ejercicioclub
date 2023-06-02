@@ -1,0 +1,10 @@
+App\Entity\Player:
+  attributes:
+    id:
+      groups: ['laliga']
+    name:
+      groups: ['laliga']
+    salary:
+      groups: ['laliga']
+    club:
+      groups: ['laliga']

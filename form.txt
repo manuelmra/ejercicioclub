@@ -1,0 +1,390 @@
+
+[33mSymfony Container Services[39m
+[33m==========================[39m
+
+ ---------------------------------------------------------------------------- ------------------------------------------------------------------------------------------- 
+ [32m Service ID                                                                 [39m [32m Class name                                                                                [39m 
+ ---------------------------------------------------------------------------- ------------------------------------------------------------------------------------------- 
+  [36mApp\Kernel[39m                                                                   alias for "kernel"                                                                         
+  [36mApp\Repository\ClubRepository[39m                                                App\Repository\ClubRepository                                                              
+  [36mApp\Repository\CoachRepository[39m                                               App\Repository\CoachRepository                                                             
+  [36mApp\Repository\PlayerRepository[39m                                              App\Repository\PlayerRepository                                                            
+  [36mDoctrine\Bundle\DoctrineBundle\Dbal\ManagerRegistryAwareConnectionProvider[39m   Doctrine\Bundle\DoctrineBundle\Dbal\ManagerRegistryAwareConnectionProvider                 
+  [36mDoctrine\Common\Annotations\Reader[39m                                           alias for "annotations.cached_reader"                                                      
+  [36mDoctrine\Common\Persistence\ManagerRegistry[39m                                  alias for "doctrine"                                                                       
+  [36mDoctrine\DBAL\Connection[39m                                                     alias for "doctrine.dbal.default_connection"                                               
+  [36mDoctrine\DBAL\Connection $defaultConnection[39m                                  alias for "doctrine.dbal.default_connection"                                               
+  [36mDoctrine\DBAL\Tools\Console\Command\RunSqlCommand[39m                            Doctrine\DBAL\Tools\Console\Command\RunSqlCommand                                          
+  [36mDoctrine\ORM\EntityManagerInterface[39m                                          alias for "doctrine.orm.default_entity_manager"                                            
+  [36mDoctrine\ORM\EntityManagerInterface $defaultEntityManager[39m                    alias for "doctrine.orm.default_entity_manager"                                            
+  [36mDoctrine\Persistence\ManagerRegistry[39m                                         alias for "doctrine"                                                                       
+  [36mPsr\Cache\CacheItemPoolInterface[39m                                             alias for "cache.app"                                                                      
+  [36mPsr\Container\ContainerInterface[39m                                             alias for "service_container"                                                              
+  [36mPsr\Container\ContainerInterface $parameterBag[39m                               alias for "parameter_bag"                                                                  
+  [36mPsr\EventDispatcher\EventDispatcherInterface[39m                                 alias for "debug.event_dispatcher"                                                         
+  [36mPsr\Log\LoggerInterface[39m                                                      alias for "logger"                                                                         
+  [36mSessionHandlerInterface[39m                                                      alias for "session.handler.native"                                                         
+  [36mSymfony\Bundle\FrameworkBundle\Controller\RedirectController[39m                 Symfony\Bundle\FrameworkBundle\Controller\RedirectController                               
+  [36mSymfony\Bundle\FrameworkBundle\Controller\TemplateController[39m                 Symfony\Bundle\FrameworkBundle\Controller\TemplateController                               
+  [36mSymfony\Component\Cache\Adapter\AdapterInterface[39m                             alias for "cache.app"                                                                      
+  [36mSymfony\Component\DependencyInjection\ContainerInterface[39m                     alias for "service_container"                                                              
+  [36mSymfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface[39m     alias for "parameter_bag"                                                                  
+  [36mSymfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface[39m     alias for "parameter_bag"                                                                  
+  [36mSymfony\Component\DependencyInjection\ReverseContainer[39m                       alias for "reverse_container"                                                              
+  [36mSymfony\Component\EventDispatcher\EventDispatcherInterface[39m                   alias for "debug.event_dispatcher"                                                         
+  [36mSymfony\Component\Filesystem\Filesystem[39m                                      alias for "filesystem"                                                                     
+  [36mSymfony\Component\HttpFoundation\RequestStack[39m                                alias for "request_stack"                                                                  
+  [36mSymfony\Component\HttpFoundation\Session\Flash\FlashBagInterface[39m             alias for "session.flash_bag"                                                              
+  [36mSymfony\Component\HttpFoundation\Session\SessionInterface[39m                    alias for ".session.do-not-use"                                                            
+  [36mSymfony\Component\HttpFoundation\UrlHelper[39m                                   alias for "url_helper"                                                                     
+  [36mSymfony\Component\HttpKernel\Config\FileLocator[39m                              alias for "file_locator"                                                                   
+  [36mSymfony\Component\HttpKernel\Debug\FileLinkFormatter[39m                         alias for "debug.file_link_formatter"                                                      
+  [36mSymfony\Component\HttpKernel\Fragment\FragmentUriGeneratorInterface[39m          alias for "fragment.uri_generator"                                                         
+  [36mSymfony\Component\HttpKernel\HttpCache\StoreInterface[39m                        alias for "http_cache.store"                                                               
+  [36mSymfony\Component\HttpKernel\HttpKernelInterface[39m                             alias for "http_kernel"                                                                    
+  [36mSymfony\Component\HttpKernel\KernelInterface[39m                                 alias for "kernel"                                                                         
+  [36mSymfony\Component\HttpKernel\UriSigner[39m                                       alias for "uri_signer"                                                                     
+  [36mSymfony\Component\Routing\Generator\UrlGeneratorInterface[39m                    alias for "router.default"                                                                 
+  [36mSymfony\Component\Routing\Matcher\UrlMatcherInterface[39m                        alias for "router.default"                                                                 
+  [36mSymfony\Component\Routing\RequestContext[39m                                     alias for "router.request_context"                                                         
+  [36mSymfony\Component\Routing\RequestContextAwareInterface[39m                       alias for "router.default"                                                                 
+  [36mSymfony\Component\Routing\RouterInterface[39m                                    alias for "router.default"                                                                 
+  [36mSymfony\Component\Stopwatch\Stopwatch[39m                                        alias for "debug.stopwatch"                                                                
+  [36mSymfony\Component\String\Slugger\SluggerInterface[39m                            alias for "slugger"                                                                        
+  [36mSymfony\Contracts\Cache\CacheInterface[39m                                       alias for "cache.app"                                                                      
+  [36mSymfony\Contracts\Cache\TagAwareCacheInterface[39m                               alias for "cache.app.taggable"                                                             
+  [36mSymfony\Contracts\EventDispatcher\EventDispatcherInterface[39m                   alias for "debug.event_dispatcher"                                                         
+  [36mannotation_reader[39m                                                            alias for "annotations.cached_reader"                                                      
+  [36mannotations.cache[39m                                                            Doctrine\Common\Cache\Psr6\DoctrineProvider                                                
+  [36mannotations.cache_adapter[39m                                                    Symfony\Component\Cache\Adapter\PhpArrayAdapter                                            
+  [36mannotations.cache_warmer[39m                                                     Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer                          
+  [36mannotations.cached_reader[39m                                                    Doctrine\Common\Annotations\PsrCachedReader                                                
+  [36mannotations.filesystem_cache[39m                                                 Doctrine\Common\Cache\Psr6\DoctrineProvider                                                
+  [36mannotations.filesystem_cache_adapter[39m                                         Symfony\Component\Cache\Adapter\FilesystemAdapter                                          
+  [36mannotations.reader[39m                                                           Doctrine\Common\Annotations\AnnotationReader                                               
+  [36margument_metadata_factory[39m                                                    Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory                    
+  [36margument_resolver[39m                                                            alias for "debug.argument_resolver"                                                        
+  [36margument_resolver.controller_locator[39m                                         alias for ".service_locator.mGHEj8d"                                                       
+  [36margument_resolver.default[39m                                                    alias for "debug.argument_resolver.default"                                                
+  [36margument_resolver.not_tagged_controller[39m                                      alias for "debug.argument_resolver.not_tagged_controller"                                  
+  [36margument_resolver.request[39m                                                    alias for "debug.argument_resolver.request"                                                
+  [36margument_resolver.request_attribute[39m                                          alias for "debug.argument_resolver.request_attribute"                                      
+  [36margument_resolver.service[39m                                                    alias for "debug.argument_resolver.service"                                                
+  [36margument_resolver.session[39m                                                    alias for "debug.argument_resolver.session"                                                
+  [36margument_resolver.variadic[39m                                                   alias for "debug.argument_resolver.variadic"                                               
+  [36mcache.adapter.apcu[39m                                                           Symfony\Component\Cache\Adapter\ApcuAdapter                                                
+  [36mcache.adapter.array[39m                                                          Symfony\Component\Cache\Adapter\ArrayAdapter                                               
+  [36mcache.adapter.doctrine[39m                                                       Symfony\Component\Cache\Adapter\DoctrineAdapter                                            
+  [36mcache.adapter.doctrine_dbal[39m                                                  Symfony\Component\Cache\Adapter\DoctrineDbalAdapter                                        
+  [36mcache.adapter.filesystem[39m                                                     Symfony\Component\Cache\Adapter\FilesystemAdapter                                          
+  [36mcache.adapter.memcached[39m                                                      Symfony\Component\Cache\Adapter\MemcachedAdapter                                           
+  [36mcache.adapter.pdo[39m                                                            Symfony\Component\Cache\Adapter\PdoAdapter                                                 
+  [36mcache.adapter.psr6[39m                                                           Symfony\Component\Cache\Adapter\ProxyAdapter                                               
+  [36mcache.adapter.redis[39m                                                          Symfony\Component\Cache\Adapter\RedisAdapter                                               
+  [36mcache.adapter.redis_tag_aware[39m                                                Symfony\Component\Cache\Adapter\RedisTagAwareAdapter                                       
+  [36mcache.adapter.system[39m                                                         Symfony\Component\Cache\Adapter\AdapterInterface                                           
+  [36mcache.annotations[39m                                                            Symfony\Component\Cache\Adapter\AdapterInterface                                           
+  [36mcache.app[39m                                                                    Symfony\Component\Cache\Adapter\FilesystemAdapter                                          
+  [36mcache.app.taggable[39m                                                           Symfony\Component\Cache\Adapter\TagAwareAdapter                                            
+  [36mcache.app_clearer[39m                                                            alias for "cache.default_clearer"                                                          
+  [36mcache.default_clearer[39m                                                        Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer                                 
+  [36mcache.default_doctrine_dbal_provider[39m                                         alias for "doctrine.dbal.default_connection"                                               
+  [36mcache.default_marshaller[39m                                                     Symfony\Component\Cache\Marshaller\DefaultMarshaller                                       
+  [36mcache.default_memcached_provider[39m                                             alias for ".cache_connection.JKE6keX"                                                      
+  [36mcache.default_pdo_provider[39m                                                   alias for "doctrine.dbal.default_connection"                                               
+  [36mcache.default_redis_provider[39m                                                 alias for ".cache_connection.GD_MSZC"                                                      
+  [36mcache.doctrine.orm.default.metadata[39m                                          Symfony\Component\Cache\Adapter\ArrayAdapter                                               
+  [36mcache.doctrine.orm.default.query[39m                                             Symfony\Component\Cache\Adapter\ArrayAdapter                                               
+  [36mcache.doctrine.orm.default.result[39m                                            Symfony\Component\Cache\Adapter\ArrayAdapter                                               
+  [36mcache.global_clearer[39m                                                         Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer                                 
+  [36mcache.property_info[39m                                                          Symfony\Component\Cache\Adapter\AdapterInterface                                           
+  [36mcache.serializer[39m                                                             Symfony\Component\Cache\Adapter\AdapterInterface                                           
+  [36mcache.system[39m                                                                 Symfony\Component\Cache\Adapter\AdapterInterface                                           
+  [36mcache.system_clearer[39m                                                         Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer                                 
+  [36mcache.validator[39m                                                              Symfony\Component\Cache\Adapter\AdapterInterface                                           
+  [36mcache_clearer[39m                                                                Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer                                
+  [36mcache_warmer[39m                                                                 Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate                              
+  [36mconfig.resource.self_checking_resource_checker[39m                               Symfony\Component\Config\Resource\SelfCheckingResourceChecker                              
+  [36mconfig_builder.warmer[39m                                                        Symfony\Bundle\FrameworkBundle\CacheWarmer\ConfigBuilderCacheWarmer                        
+  [36mconfig_cache_factory[39m                                                         Symfony\Component\Config\ResourceCheckerConfigCacheFactory                                 
+  [36mconsole.command.about[39m                                                        Symfony\Bundle\FrameworkBundle\Command\AboutCommand                                        
+  [36mconsole.command.assets_install[39m                                               Symfony\Bundle\FrameworkBundle\Command\AssetsInstallCommand                                
+  [36mconsole.command.cache_clear[39m                                                  Symfony\Bundle\FrameworkBundle\Command\CacheClearCommand                                   
+  [36mconsole.command.cache_pool_clear[39m                                             Symfony\Bundle\FrameworkBundle\Command\CachePoolClearCommand                               
+  [36mconsole.command.cache_pool_delete[39m                                            Symfony\Bundle\FrameworkBundle\Command\CachePoolDeleteCommand                              
+  [36mconsole.command.cache_pool_list[39m                                              Symfony\Bundle\FrameworkBundle\Command\CachePoolListCommand                                
+  [36mconsole.command.cache_pool_prune[39m                                             Symfony\Bundle\FrameworkBundle\Command\CachePoolPruneCommand                               
+  [36mconsole.command.cache_warmup[39m                                                 Symfony\Bundle\FrameworkBundle\Command\CacheWarmupCommand                                  
+  [36mconsole.command.config_debug[39m                                                 Symfony\Bundle\FrameworkBundle\Command\ConfigDebugCommand                                  
+  [36mconsole.command.config_dump_reference[39m                                        Symfony\Bundle\FrameworkBundle\Command\ConfigDumpReferenceCommand                          
+  [36mconsole.command.container_debug[39m                                              Symfony\Bundle\FrameworkBundle\Command\ContainerDebugCommand                               
+  [36mconsole.command.container_lint[39m                                               Symfony\Bundle\FrameworkBundle\Command\ContainerLintCommand                                
+  [36mconsole.command.debug_autowiring[39m                                             Symfony\Bundle\FrameworkBundle\Command\DebugAutowiringCommand                              
+  [36mconsole.command.dotenv_debug[39m                                                 Symfony\Component\Dotenv\Command\DebugCommand                                              
+  [36mconsole.command.event_dispatcher_debug[39m                                       Symfony\Bundle\FrameworkBundle\Command\EventDispatcherDebugCommand                         
+  [36mconsole.command.router_debug[39m                                                 Symfony\Bundle\FrameworkBundle\Command\RouterDebugCommand                                  
+  [36mconsole.command.router_match[39m                                                 Symfony\Bundle\FrameworkBundle\Command\RouterMatchCommand                                  
+  [36mconsole.command.secrets_decrypt_to_local[39m                                     Symfony\Bundle\FrameworkBundle\Command\SecretsDecryptToLocalCommand                        
+  [36mconsole.command.secrets_encrypt_from_local[39m                                   Symfony\Bundle\FrameworkBundle\Command\SecretsEncryptFromLocalCommand                      
+  [36mconsole.command.secrets_generate_key[39m                                         Symfony\Bundle\FrameworkBundle\Command\SecretsGenerateKeysCommand                          
+  [36mconsole.command.secrets_list[39m                                                 Symfony\Bundle\FrameworkBundle\Command\SecretsListCommand                                  
+  [36mconsole.command.secrets_remove[39m                                               Symfony\Bundle\FrameworkBundle\Command\SecretsRemoveCommand                                
+  [36mconsole.command.secrets_set[39m                                                  Symfony\Bundle\FrameworkBundle\Command\SecretsSetCommand                                   
+  [36mconsole.command.yaml_lint[39m                                                    Symfony\Bundle\FrameworkBundle\Command\YamlLintCommand                                     
+  [36mconsole.command_loader[39m                                                       Symfony\Component\Console\CommandLoader\ContainerCommandLoader                             
+  [36mconsole.error_listener[39m                                                       Symfony\Component\Console\EventListener\ErrorListener                                      
+  [36mconsole.suggest_missing_package_subscriber[39m                                   Symfony\Bundle\FrameworkBundle\EventListener\SuggestMissingPackageSubscriber               
+  [36mcontainer.env[39m                                                                Symfony\Component\String\LazyString                                                        
+  [36mcontainer.env_var_processor[39m                                                  Symfony\Component\DependencyInjection\EnvVarProcessor                                      
+  [36mcontainer.env_var_processors_locator[39m                                         alias for ".service_locator.gSv9zYw"                                                       
+  [36mcontainer.getenv[39m                                                             Closure                                                                                    
+  [36mcontroller_resolver[39m                                                          alias for "debug.controller_resolver"                                                      
+  [36mdata_collector.doctrine[39m                                                      Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector                         
+  [36mdatabase_connection[39m                                                          alias for "doctrine.dbal.default_connection"                                               
+  [36mdebug.argument_resolver[39m                                                      Symfony\Component\HttpKernel\Controller\TraceableArgumentResolver                          
+  [36mdebug.argument_resolver.default[39m                                              Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver            
+  [36mdebug.argument_resolver.default.inner[39m                                        Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver              
+  [36mdebug.argument_resolver.inner[39m                                                Symfony\Component\HttpKernel\Controller\ArgumentResolver                                   
+  [36mdebug.argument_resolver.not_tagged_controller[39m                                Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver            
+  [36mdebug.argument_resolver.not_tagged_controller.inner[39m                          Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver  
+  [36mdebug.argument_resolver.request[39m                                              Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver            
+  [36mdebug.argument_resolver.request.inner[39m                                        Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver              
+  [36mdebug.argument_resolver.request_attribute[39m                                    Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver            
+  [36mdebug.argument_resolver.request_attribute.inner[39m                              Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestAttributeValueResolver     
+  [36mdebug.argument_resolver.service[39m                                              Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver            
+  [36mdebug.argument_resolver.service.inner[39m                                        Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver              
+  [36mdebug.argument_resolver.session[39m                                              Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver            
+  [36mdebug.argument_resolver.session.inner[39m                                        Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver              
+  [36mdebug.argument_resolver.variadic[39m                                             Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver            
+  [36mdebug.argument_resolver.variadic.inner[39m                                       Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver             
+  [36mdebug.controller_resolver[39m                                                    Symfony\Component\HttpKernel\Controller\TraceableControllerResolver                        
+  [36mdebug.controller_resolver.inner[39m                                              Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver                               
+  [36mdebug.debug_handlers_listener[39m                                                Symfony\Component\HttpKernel\EventListener\DebugHandlersListener                           
+  [36mdebug.event_dispatcher[39m                                                       Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher                                
+  [36mdebug.event_dispatcher.inner[39m                                                 Symfony\Component\EventDispatcher\EventDispatcher                                          
+  [36mdebug.file_link_formatter[39m                                                    Symfony\Component\HttpKernel\Debug\FileLinkFormatter                                       
+  [36mdebug.stopwatch[39m                                                              Symfony\Component\Stopwatch\Stopwatch                                                      
+  [36mdependency_injection.config.container_parameters_resource_checker[39m            Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker            
+  [36mdisallow_search_engine_index_response_listener[39m                               Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener                  
+  [36mdoctrine[39m                                                                     Doctrine\Bundle\DoctrineBundle\Registry                                                    
+  [36mdoctrine.cache_clear_metadata_command[39m                                        Doctrine\ORM\Tools\Console\Command\ClearCache\MetadataCommand                              
+  [36mdoctrine.cache_clear_query_cache_command[39m                                     Doctrine\ORM\Tools\Console\Command\ClearCache\QueryCommand                                 
+  [36mdoctrine.cache_clear_result_command[39m                                          Doctrine\ORM\Tools\Console\Command\ClearCache\ResultCommand                                
+  [36mdoctrine.cache_collection_region_command[39m                                     Doctrine\ORM\Tools\Console\Command\ClearCache\CollectionRegionCommand                      
+  [36mdoctrine.clear_entity_region_command[39m                                         Doctrine\ORM\Tools\Console\Command\ClearCache\EntityRegionCommand                          
+  [36mdoctrine.clear_query_region_command[39m                                          Doctrine\ORM\Tools\Console\Command\ClearCache\QueryRegionCommand                           
+  [36mdoctrine.database_create_command[39m                                             Doctrine\Bundle\DoctrineBundle\Command\CreateDatabaseDoctrineCommand                       
+  [36mdoctrine.database_drop_command[39m                                               Doctrine\Bundle\DoctrineBundle\Command\DropDatabaseDoctrineCommand                         
+  [36mdoctrine.dbal.connection[39m                                                     Doctrine\DBAL\Connection                                                                   
+  [36mdoctrine.dbal.connection.configuration[39m                                       Doctrine\DBAL\Configuration                                                                
+  [36mdoctrine.dbal.connection.event_manager[39m                                       Symfony\Bridge\Doctrine\ContainerAwareEventManager                                         
+  [36mdoctrine.dbal.connection_factory[39m                                             Doctrine\Bundle\DoctrineBundle\ConnectionFactory                                           
+  [36mdoctrine.dbal.debug_middleware[39m                                               Doctrine\Bundle\DoctrineBundle\Middleware\DebugMiddleware                                  
+  [36mdoctrine.dbal.debug_middleware.default[39m                                       Doctrine\Bundle\DoctrineBundle\Middleware\DebugMiddleware                                  
+  [36mdoctrine.dbal.default_connection[39m                                             Doctrine\DBAL\Connection                                                                   
+  [36mdoctrine.dbal.default_connection.configuration[39m                               Doctrine\DBAL\Configuration                                                                
+  [36mdoctrine.dbal.default_connection.event_manager[39m                               Symfony\Bridge\Doctrine\ContainerAwareEventManager                                         
+  [36mdoctrine.dbal.default_schema_manager_factory[39m                                 Doctrine\DBAL\Schema\DefaultSchemaManagerFactory                                           
+  [36mdoctrine.dbal.event_manager[39m                                                  alias for "doctrine.dbal.default_connection.event_manager"                                 
+  [36mdoctrine.dbal.legacy_schema_manager_factory[39m                                  Doctrine\DBAL\Schema\LegacySchemaManagerFactory                                            
+  [36mdoctrine.dbal.schema_asset_filter_manager[39m                                    Doctrine\Bundle\DoctrineBundle\Dbal\SchemaAssetsFilterManager                              
+  [36mdoctrine.dbal.well_known_schema_asset_filter[39m                                 Doctrine\Bundle\DoctrineBundle\Dbal\BlacklistSchemaAssetFilter                             
+  [36mdoctrine.debug_data_holder[39m                                                   Doctrine\Bundle\DoctrineBundle\Middleware\BacktraceDebugDataHolder                         
+  [36mdoctrine.ensure_production_settings_command[39m                                  Doctrine\ORM\Tools\Console\Command\EnsureProductionSettingsCommand                         
+  [36mdoctrine.id_generator_locator[39m                                                alias for ".service_locator.KLVvNIq"                                                       
+  [36mdoctrine.mapping_convert_command[39m                                             Doctrine\ORM\Tools\Console\Command\ConvertMappingCommand                                   
+  [36mdoctrine.mapping_import_command[39m                                              Doctrine\Bundle\DoctrineBundle\Command\ImportMappingDoctrineCommand                        
+  [36mdoctrine.mapping_info_command[39m                                                Doctrine\ORM\Tools\Console\Command\InfoCommand                                             
+  [36mdoctrine.migrations.configuration[39m                                            Doctrine\Migrations\Configuration\Configuration                                            
+  [36mdoctrine.migrations.configuration_loader[39m                                     Doctrine\Migrations\Configuration\Migration\ExistingConfiguration                          
+  [36mdoctrine.migrations.connection_loader[39m                                        Doctrine\Migrations\Configuration\Connection\ExistingConnection                            
+  [36mdoctrine.migrations.connection_registry_loader[39m                               Doctrine\Migrations\Configuration\Connection\ConnectionRegistryConnection                  
+  [36mdoctrine.migrations.container_aware_migrations_factory[39m                       Doctrine\Bundle\MigrationsBundle\MigrationsFactory\ContainerAwareMigrationFactory          
+  [36mdoctrine.migrations.container_aware_migrations_factory.inner[39m                 Doctrine\Migrations\Version\MigrationFactory                                               
+  [36mdoctrine.migrations.dependency_factory[39m                                       Doctrine\Migrations\DependencyFactory                                                      
+  [36mdoctrine.migrations.em_loader[39m                                                Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager                      
+  [36mdoctrine.migrations.entity_manager_registry_loader[39m                           Doctrine\Migrations\Configuration\EntityManager\ManagerRegistryEntityManager               
+  [36mdoctrine.migrations.metadata_storage[39m                                         alias for "doctrine.migrations.storage.table_storage"                                      
+  [36mdoctrine.migrations.migrations_factory[39m                                       alias for "doctrine.migrations.container_aware_migrations_factory"                         
+  [36mdoctrine.migrations.storage.table_storage[39m                                    Doctrine\Migrations\Metadata\Storage\TableMetadataStorageConfiguration                     
+  [36mdoctrine.orm.command.entity_manager_provider[39m                                 Doctrine\Bundle\DoctrineBundle\Orm\ManagerRegistryAwareEntityManagerProvider               
+  [36mdoctrine.orm.configuration[39m                                                   Doctrine\ORM\Configuration                                                                 
+  [36mdoctrine.orm.container_repository_factory[39m                                    Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory                       
+  [36mdoctrine.orm.default_annotation_metadata_driver[39m                              Doctrine\ORM\Mapping\Driver\AnnotationDriver                                               
+  [36mdoctrine.orm.default_configuration[39m                                           Doctrine\ORM\Configuration                                                                 
+  [36mdoctrine.orm.default_entity_listener_resolver[39m                                Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver                     
+  [36mdoctrine.orm.default_entity_manager[39m                                          Doctrine\ORM\EntityManager                                                                 
+  [36mdoctrine.orm.default_entity_manager.event_manager[39m                            alias for "doctrine.dbal.default_connection.event_manager"                                 
+  [36mdoctrine.orm.default_listeners.attach_entity_listeners[39m                       Doctrine\ORM\Tools\AttachEntityListenersListener                                           
+  [36mdoctrine.orm.default_manager_configurator[39m                                    Doctrine\Bundle\DoctrineBundle\ManagerConfigurator                                         
+  [36mdoctrine.orm.default_metadata_cache[39m                                          alias for "cache.doctrine.orm.default.metadata"                                            
+  [36mdoctrine.orm.default_metadata_driver[39m                                         alias for ".doctrine.orm.default_metadata_driver"                                          
+  [36mdoctrine.orm.default_query_cache[39m                                             alias for "cache.doctrine.orm.default.query"                                               
+  [36mdoctrine.orm.default_result_cache[39m                                            alias for "cache.doctrine.orm.default.result"                                              
+  [36mdoctrine.orm.entity_manager[39m                                                  alias for "doctrine.orm.default_entity_manager"                                            
+  [36mdoctrine.orm.entity_manager.abstract[39m                                         Doctrine\ORM\EntityManager                                                                 
+  [36mdoctrine.orm.listeners.doctrine_dbal_cache_adapter_schema_subscriber[39m         Symfony\Bridge\Doctrine\SchemaListener\DoctrineDbalCacheAdapterSchemaSubscriber            
+  [36mdoctrine.orm.listeners.doctrine_token_provider_schema_subscriber[39m             Symfony\Bridge\Doctrine\SchemaListener\RememberMeTokenProviderDoctrineSchemaSubscriber     
+  [36mdoctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber[39m          Symfony\Bridge\Doctrine\SchemaListener\PdoCacheAdapterDoctrineSchemaSubscriber             
+  [36mdoctrine.orm.listeners.resolve_target_entity[39m                                 Doctrine\ORM\Tools\ResolveTargetEntityListener                                             
+  [36mdoctrine.orm.manager_configurator.abstract[39m                                   Doctrine\Bundle\DoctrineBundle\ManagerConfigurator                                         
+  [36mdoctrine.orm.metadata.annotation_reader[39m                                      alias for "annotations.cached_reader"                                                      
+  [36mdoctrine.orm.naming_strategy.default[39m                                         Doctrine\ORM\Mapping\DefaultNamingStrategy                                                 
+  [36mdoctrine.orm.naming_strategy.underscore[39m                                      Doctrine\ORM\Mapping\UnderscoreNamingStrategy                                              
+  [36mdoctrine.orm.naming_strategy.underscore_number_aware[39m                         Doctrine\ORM\Mapping\UnderscoreNamingStrategy                                              
+  [36mdoctrine.orm.proxy_cache_warmer[39m                                              Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer                                       
+  [36mdoctrine.orm.quote_strategy.ansi[39m                                             Doctrine\ORM\Mapping\AnsiQuoteStrategy                                                     
+  [36mdoctrine.orm.quote_strategy.default[39m                                          Doctrine\ORM\Mapping\DefaultQuoteStrategy                                                  
+  [36mdoctrine.orm.security.user.provider[39m                                          Symfony\Bridge\Doctrine\Security\User\EntityUserProvider                                   
+  [36mdoctrine.orm.validator.unique[39m                                                Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator                        
+  [36mdoctrine.orm.validator_initializer[39m                                           Symfony\Bridge\Doctrine\Validator\DoctrineInitializer                                      
+  [36mdoctrine.query_dql_command[39m                                                   Doctrine\ORM\Tools\Console\Command\RunDqlCommand                                           
+  [36mdoctrine.query_sql_command[39m                                                   Doctrine\Bundle\DoctrineBundle\Command\Proxy\RunSqlDoctrineCommand                         
+  [36mdoctrine.schema_create_command[39m                                               Doctrine\ORM\Tools\Console\Command\SchemaTool\CreateCommand                                
+  [36mdoctrine.schema_drop_command[39m                                                 Doctrine\ORM\Tools\Console\Command\SchemaTool\DropCommand                                  
+  [36mdoctrine.schema_update_command[39m                                               Doctrine\ORM\Tools\Console\Command\SchemaTool\UpdateCommand                                
+  [36mdoctrine.schema_validate_command[39m                                             Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand                                   
+  [36mdoctrine.twig.doctrine_extension[39m                                             Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension                                      
+  [36mdoctrine.ulid_generator[39m                                                      Symfony\Bridge\Doctrine\IdGenerator\UlidGenerator                                          
+  [36mdoctrine.uuid_generator[39m                                                      Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator                                          
+  [36mdoctrine_migrations.current_command[39m                                          Doctrine\Migrations\Tools\Console\Command\CurrentCommand                                   
+  [36mdoctrine_migrations.diff_command[39m                                             Doctrine\Migrations\Tools\Console\Command\DiffCommand                                      
+  [36mdoctrine_migrations.dump_schema_command[39m                                      Doctrine\Migrations\Tools\Console\Command\DumpSchemaCommand                                
+  [36mdoctrine_migrations.execute_command[39m                                          Doctrine\Migrations\Tools\Console\Command\ExecuteCommand                                   
+  [36mdoctrine_migrations.generate_command[39m                                         Doctrine\Migrations\Tools\Console\Command\GenerateCommand                                  
+  [36mdoctrine_migrations.latest_command[39m                                           Doctrine\Migrations\Tools\Console\Command\LatestCommand                                    
+  [36mdoctrine_migrations.migrate_command[39m                                          Doctrine\Migrations\Tools\Console\Command\MigrateCommand                                   
+  [36mdoctrine_migrations.rollup_command[39m                                           Doctrine\Migrations\Tools\Console\Command\RollupCommand                                    
+  [36mdoctrine_migrations.status_command[39m                                           Doctrine\Migrations\Tools\Console\Command\StatusCommand                                    
+  [36mdoctrine_migrations.sync_metadata_command[39m                                    Doctrine\Migrations\Tools\Console\Command\SyncMetadataCommand                              
+  [36mdoctrine_migrations.up_to_date_command[39m                                       Doctrine\Migrations\Tools\Console\Command\UpToDateCommand                                  
+  [36mdoctrine_migrations.version_command[39m                                          Doctrine\Migrations\Tools\Console\Command\VersionCommand                                   
+  [36mdoctrine_migrations.versions_command[39m                                         Doctrine\Migrations\Tools\Console\Command\ListCommand                                      
+  [36merror_controller[39m                                                             Symfony\Component\HttpKernel\Controller\ErrorController                                    
+  [36merror_handler.error_renderer.html[39m                                            Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer                             
+  [36merror_renderer[39m                                                               alias for "error_handler.error_renderer.html"                                              
+  [36merror_renderer.html[39m                                                          alias for "error_handler.error_renderer.html"                                              
+  [36mevent_dispatcher[39m                                                             alias for "debug.event_dispatcher"                                                         
+  [36mexception_listener[39m                                                           Symfony\Component\HttpKernel\EventListener\ErrorListener                                   
+  [36mfile_locator[39m                                                                 Symfony\Component\HttpKernel\Config\FileLocator                                            
+  [36mfilesystem[39m                                                                   Symfony\Component\Filesystem\Filesystem                                                    
+  [36mform.type.entity[39m                                                             Symfony\Bridge\Doctrine\Form\Type\EntityType                                               
+  [36mform.type_guesser.doctrine[39m                                                   Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser                                        
+  [36mfragment.handler[39m                                                             Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler                
+  [36mfragment.renderer.inline[39m                                                     Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer                               
+  [36mfragment.uri_generator[39m                                                       Symfony\Component\HttpKernel\Fragment\FragmentUriGenerator                                 
+  [36mhttp_cache[39m                                                                   Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache                                         
+  [36mhttp_cache.store[39m                                                             Symfony\Component\HttpKernel\HttpCache\Store                                               
+  [36mhttp_kernel[39m                                                                  Symfony\Component\HttpKernel\HttpKernel                                                    
+  [36mkernel[39m                                                                       App\Kernel                                                                                 
+  [36mlocale_listener[39m                                                              Symfony\Component\HttpKernel\EventListener\LocaleListener                                  
+  [36mlogger[39m                                                                       Symfony\Component\HttpKernel\Log\Logger                                                    
+  [36mmaker.auto_command.abstract[39m                                                  Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_auth[39m                                                 Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_command[39m                                              Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_controller[39m                                           Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_crud[39m                                                 Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_docker_database[39m                                      Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_entity[39m                                               Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_fixtures[39m                                             Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_form[39m                                                 Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_message[39m                                              Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_messenger_middleware[39m                                 Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_migration[39m                                            Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_registration_form[39m                                    Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_reset_password[39m                                       Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_serializer_encoder[39m                                   Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_serializer_normalizer[39m                                Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_stimulus_controller[39m                                  Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_subscriber[39m                                           Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_test[39m                                                 Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_twig_extension[39m                                       Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_user[39m                                                 Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_validator[39m                                            Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.auto_command.make_voter[39m                                                Symfony\Bundle\MakerBundle\Command\MakerCommand                                            
+  [36mmaker.autoloader_finder[39m                                                      Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder                                   
+  [36mmaker.autoloader_util[39m                                                        Symfony\Bundle\MakerBundle\Util\AutoloaderUtil                                             
+  [36mmaker.console_error_listener[39m                                                 Symfony\Bundle\MakerBundle\Event\ConsoleErrorSubscriber                                    
+  [36mmaker.doctrine_helper[39m                                                        Symfony\Bundle\MakerBundle\Doctrine\DoctrineHelper                                         
+  [36mmaker.entity_class_generator[39m                                                 Symfony\Bundle\MakerBundle\Doctrine\EntityClassGenerator                                   
+  [36mmaker.event_registry[39m                                                         Symfony\Bundle\MakerBundle\EventRegistry                                                   
+  [36mmaker.file_link_formatter[39m                                                    Symfony\Bundle\MakerBundle\Util\MakerFileLinkFormatter                                     
+  [36mmaker.file_manager[39m                                                           Symfony\Bundle\MakerBundle\FileManager                                                     
+  [36mmaker.generator[39m                                                              Symfony\Bundle\MakerBundle\Generator                                                       
+  [36mmaker.maker.make_authenticator[39m                                               Symfony\Bundle\MakerBundle\Maker\MakeAuthenticator                                         
+  [36mmaker.maker.make_command[39m                                                     Symfony\Bundle\MakerBundle\Maker\MakeCommand                                               
+  [36mmaker.maker.make_controller[39m                                                  Symfony\Bundle\MakerBundle\Maker\MakeController                                            
+  [36mmaker.maker.make_crud[39m                                                        Symfony\Bundle\MakerBundle\Maker\MakeCrud                                                  
+  [36mmaker.maker.make_docker_database[39m                                             Symfony\Bundle\MakerBundle\Maker\MakeDockerDatabase                                        
+  [36mmaker.maker.make_entity[39m                                                      Symfony\Bundle\MakerBundle\Maker\MakeEntity                                                
+  [36mmaker.maker.make_fixtures[39m                                                    Symfony\Bundle\MakerBundle\Maker\MakeFixtures                                              
+  [36mmaker.maker.make_form[39m                                                        Symfony\Bundle\MakerBundle\Maker\MakeForm                                                  
+  [36mmaker.maker.make_functional_test[39m                                             Symfony\Bundle\MakerBundle\Maker\MakeFunctionalTest                                        
+  [36mmaker.maker.make_message[39m                                                     Symfony\Bundle\MakerBundle\Maker\MakeMessage                                               
+  [36mmaker.maker.make_messenger_middleware[39m                                        Symfony\Bundle\MakerBundle\Maker\MakeMessengerMiddleware                                   
+  [36mmaker.maker.make_migration[39m                                                   Symfony\Bundle\MakerBundle\Maker\MakeMigration                                             
+  [36mmaker.maker.make_registration_form[39m                                           Symfony\Bundle\MakerBundle\Maker\MakeRegistrationForm                                      
+  [36mmaker.maker.make_reset_password[39m                                              Symfony\Bundle\MakerBundle\Maker\MakeResetPassword                                         
+  [36mmaker.maker.make_serializer_encoder[39m                                          Symfony\Bundle\MakerBundle\Maker\MakeSerializerEncoder                                     
+  [36mmaker.maker.make_serializer_normalizer[39m                                       Symfony\Bundle\MakerBundle\Maker\MakeSerializerNormalizer                                  
+  [36mmaker.maker.make_stimulus_controller[39m                                         Symfony\Bundle\MakerBundle\Maker\MakeStimulusController                                    
+  [36mmaker.maker.make_subscriber[39m                                                  Symfony\Bundle\MakerBundle\Maker\MakeSubscriber                                            
+  [36mmaker.maker.make_test[39m                                                        Symfony\Bundle\MakerBundle\Maker\MakeTest                                                  
+  [36mmaker.maker.make_twig_extension[39m                                              Symfony\Bundle\MakerBundle\Maker\MakeTwigExtension                                         
+  [36mmaker.maker.make_unit_test[39m                                                   Symfony\Bundle\MakerBundle\Maker\MakeUnitTest                                              
+  [36mmaker.maker.make_user[39m                                                        Symfony\Bundle\MakerBundle\Maker\MakeUser                                                  
+  [36mmaker.maker.make_validator[39m                                                   Symfony\Bundle\MakerBundle\Maker\MakeValidator                                             
+  [36mmaker.maker.make_voter[39m                                                       Symfony\Bundle\MakerBundle\Maker\MakeVoter                                                 
+  [36mmaker.php_compat_util[39m                                                        Symfony\Bundle\MakerBundle\Util\PhpCompatUtil                                              
+  [36mmaker.renderer.form_type_renderer[39m                                            Symfony\Bundle\MakerBundle\Renderer\FormTypeRenderer                                       
+  [36mmaker.security_config_updater[39m                                                Symfony\Bundle\MakerBundle\Security\SecurityConfigUpdater                                  
+  [36mmaker.security_controller_builder[39m                                            Symfony\Bundle\MakerBundle\Security\SecurityControllerBuilder                              
+  [36mmaker.template_component_generator[39m                                           Symfony\Bundle\MakerBundle\Util\TemplateComponentGenerator                                 
+  [36mmaker.user_class_builder[39m                                                     Symfony\Bundle\MakerBundle\Security\UserClassBuilder                                       
+  [36mparameter_bag[39m                                                                Symfony\Component\DependencyInjection\ParameterBag\ContainerBag                            
+  [36mrequest_stack[39m                                                                Symfony\Component\HttpFoundation\RequestStack                                              
+  [36mresponse_listener[39m                                                            Symfony\Component\HttpKernel\EventListener\ResponseListener                                
+  [36mreverse_container[39m                                                            Symfony\Component\DependencyInjection\ReverseContainer                                     
+  [36mrouter[39m                                                                       alias for "router.default"                                                                 
+  [36mrouter.cache_warmer[39m                                                          Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer                               
+  [36mrouter.default[39m                                                               Symfony\Bundle\FrameworkBundle\Routing\Router                                              
+  [36mrouter.request_context[39m                                                       Symfony\Component\Routing\RequestContext                                                   
+  [36mrouter_listener[39m                                                              Symfony\Component\HttpKernel\EventListener\RouterListener                                  
+  [36mrouting.loader[39m                                                               Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader                                    
+  [36mrouting.loader.annotation[39m                                                    Symfony\Bundle\FrameworkBundle\Routing\AnnotatedRouteControllerLoader                      
+  [36mrouting.loader.annotation.directory[39m                                          Symfony\Component\Routing\Loader\AnnotationDirectoryLoader                                 
+  [36mrouting.loader.annotation.file[39m                                               Symfony\Component\Routing\Loader\AnnotationFileLoader                                      
+  [36mrouting.loader.container[39m                                                     Symfony\Component\Routing\Loader\ContainerLoader                                           
+  [36mrouting.loader.directory[39m                                                     Symfony\Component\Routing\Loader\DirectoryLoader                                           
+  [36mrouting.loader.glob[39m                                                          Symfony\Component\Routing\Loader\GlobFileLoader                                            
+  [36mrouting.loader.php[39m                                                           Symfony\Component\Routing\Loader\PhpFileLoader                                             
+  [36mrouting.loader.xml[39m                                                           Symfony\Component\Routing\Loader\XmlFileLoader                                             
+  [36mrouting.loader.yml[39m                                                           Symfony\Component\Routing\Loader\YamlFileLoader                                            
+  [36mrouting.resolver[39m                                                             Symfony\Component\Config\Loader\LoaderResolver                                             
+  [36msecrets.decryption_key[39m                                                       Symfony\Component\String\LazyString                                                        
+  [36msecrets.local_vault[39m                                                          Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault                                         
+  [36msecrets.vault[39m                                                                Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault                                         
+  [36mservice_container[39m                                                            Symfony\Component\DependencyInjection\ContainerInterface                                   
+  [36mservices_resetter[39m                                                            Symfony\Component\HttpKernel\DependencyInjection\ServicesResetter                          
+  [36msession[39m                                                                      alias for ".session.do-not-use"                                                            
+  [36msession.abstract_handler[39m                                                     Symfony\Component\HttpFoundation\Session\Storage\Handler\AbstractSessionHandler            
+  [36msession.attribute_bag[39m                                                        Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag                            
+  [36msession.factory[39m                                                              Symfony\Component\HttpFoundation\Session\SessionFactory                                    
+  [36msession.flash_bag[39m                                                            Symfony\Component\HttpFoundation\Session\Flash\FlashBag                                    
+  [36msession.handler[39m                                                              alias for "session.handler.native"                                                         
+  [36msession.handler.native[39m                                                       Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler              
+  [36msession.handler.native_file[39m                                                  Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler              
+  [36msession.marshaller[39m                                                           Symfony\Component\HttpFoundation\Session\Storage\Handler\IdentityMarshaller                
+  [36msession.storage.factory[39m                                                      alias for "session.storage.factory.native"                                                 
+  [36msession.storage.factory.mock_file[39m                                            Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory             
+  [36msession.storage.factory.native[39m                                               Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorageFactory               
+  [36msession.storage.factory.php_bridge[39m                                           Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorageFactory            
+  [36msession.storage.factory.service[39m                                              Symfony\Bundle\FrameworkBundle\Session\ServiceSessionFactory                               
+  [36msession_listener[39m                                                             Symfony\Component\HttpKernel\EventListener\SessionListener                                 
+  [36mslugger[39m                                                                      stdClass                                                                                   
+  [36mstreamed_response_listener[39m                                                   Symfony\Component\HttpKernel\EventListener\StreamedResponseListener                        
+  [36muri_signer[39m                                                                   Symfony\Component\HttpKernel\UriSigner                                                     
+  [36murl_helper[39m                                                                   Symfony\Component\HttpFoundation\UrlHelper                                                 
+  [36mvalidate_request_listener[39m                                                    Symfony\Component\HttpKernel\EventListener\ValidateRequestListener                         
+ ---------------------------------------------------------------------------- ------------------------------------------------------------------------------------------- 
+

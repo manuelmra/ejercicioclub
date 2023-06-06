@@ -28,7 +28,7 @@
 
 ### 06.- Crear la BD, sus tablas y datos de prueba
 - Ejecute los siguientes comandos
-<br />
+
 #### Crear la BD
 - **php bin/console doctrine:database:create**
 #### Actualizar la BD: agregando las tablas y la data de prueba
@@ -49,6 +49,7 @@ Existen 3 carpetas:
 - Player
 - Coach
 <br />
+
 En cada una de esas carpetas están las diferentes APIs de cada modelo
 
 ### Usar como modelo del request en cada API para hacer cada operación
@@ -62,6 +63,7 @@ En cada una de esas carpetas están las diferentes APIs de cada modelo
 
 - ### **- Create XXXXX** 
 //Crea un nuevo registro del modelo indicado
+
 *** Player o Coach ***
 - Se colocan datos de ejemplo en raw del body con un formato json
 - No es necesario colocar el campo id
@@ -70,7 +72,6 @@ En cada una de esas carpetas están las diferentes APIs de cada modelo
 - Tener en cuenta que se debe de usar el modelo indicado en el request: uso de índices de cada item a registrar
 - Si se quiere agregar un Player existente se coloca el id 
 - Si se quiere agregar un Player que todavía no está registrado no se pone el id pero si el resto de datos
-
 - Se está validando si un Player ya está registrado en un club.
 - También se valida si un Coach ya está registrado en un club.
 ----

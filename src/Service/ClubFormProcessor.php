@@ -51,6 +51,12 @@ class ClubFormProcessor
         }
         if($form->isValid() )
         {
+            // Validating registered coach
+            $registeredPlayers = $this->isCoachRegistered($clubDto, $club);
+            if ($registeredPlayers['result']) {
+                return [null, 'The coach is already registered in another club.'];
+            }
+
             // Validating registered players
             $registeredPlayers = $this->isPlayerRegistered($clubDto, $club);
             if ($registeredPlayers['result']) {
@@ -146,8 +152,15 @@ class ClubFormProcessor
         return $playersRegistered;
     }
 
-    private function isCoachRegistered(clubDto $clubDto)
+    private function isCoachRegistered(clubDto $clubDto, Club $club)
     {
-
+        $coachId = (int) $clubDto->coach;
+        $currentClubId = $club->getId();
+        $result = 0;
+        $clubCoachId = $this->coachManager->find($coachId)->getClub()->getId();
+        if($clubCoachId!=$currentClubId){
+            $result = 1;
+        }
+        return $result;
     }
 }

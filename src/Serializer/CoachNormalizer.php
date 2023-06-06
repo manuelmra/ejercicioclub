@@ -21,7 +21,7 @@ class CoachNormalizer implements ContextAwareNormalizerInterface
         $data = $this->normalizer->normalize($coach, $format, $context);
 		
 		// Add here more fields
-        $data['club'] = 'Data about coachs club';
+
         return $data;
     }
 

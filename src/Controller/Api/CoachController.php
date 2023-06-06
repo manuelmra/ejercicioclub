@@ -70,19 +70,24 @@ class CoachController extends AbstractFOSRestController
    }
    
     /**
-     * @Rest\Delete(path="/coach/{id}", requirements={"id"="\d+"})
+     * @Rest\Post(path="/dropcoach/{id}", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"coach"}, serializerEnableMaxDepthChecks=true)
      */
-    public function deleteAction(
+    public function dropAction(
         int $id,
-        CoachManager $coachManager
+        CoachManager $coachManager,
+        CoachFormProcessor $coachFormProcessor,
+        Request $request
     ) {
         $coach = $coachManager->find($id);
         if (!$coach){
             return View::create('Coach not found', Response::HTTP_BAD_REQUEST);
         }
-        $coachManager->delete($coach);
-        return View::create(null, Response::HTTP_NO_CONTENT);
+        $coach->setClub(null);
+        [$coach, $error] = ($coachFormProcessor)($coach, $request);
+        $statusCode = $coach ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
+        $data = $coach ?? $error;
+        return View::create($data, $statusCode);
    }
 }
 

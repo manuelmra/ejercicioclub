@@ -70,19 +70,24 @@ class PlayerController extends AbstractFOSRestController
    }
    
     /**
-     * @Rest\Delete(path="/player/{id}", requirements={"id"="\d+"})
+     * @Rest\Post(path="/dropplayer/{id}", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"player"}, serializerEnableMaxDepthChecks=true)
      */
     public function deleteAction(
         int $id,
-        PlayerManager $playerManager
+        PlayerManager $playerManager,
+        PlayerFormProcessor $playerFormProcessor,
+        Request $request
     ) {
         $player = $playerManager->find($id);
         if (!$player){
             return View::create('Player not found', Response::HTTP_BAD_REQUEST);
         }
-        $playerManager->delete($player);
-        return View::create(null, Response::HTTP_NO_CONTENT);
+        $player->setClub(null);
+        [$player, $error] = ($playerFormProcessor)($player, $request);
+        $statusCode = $player ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST;
+        $data = $player ?? $error;
+        return View::create($data, $statusCode);
    }
 }
 

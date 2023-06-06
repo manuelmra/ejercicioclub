@@ -21,7 +21,6 @@ class PlayerNormalizer implements ContextAwareNormalizerInterface
         $data = $this->normalizer->normalize($player, $format, $context);
 		
 		// Add here more fields
-        $data['club'] = 'Data about players club';
 
         return $data;
     }

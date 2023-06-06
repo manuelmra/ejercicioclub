@@ -6,5 +6,7 @@ App\Entity\Club:
       groups: ['laliga']
     budget:
       groups: ['laliga']
+    coach:
+      groups: ['laliga']
     players:
       groups: ['laliga']

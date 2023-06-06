@@ -51,7 +51,7 @@ Existen 3 carpetas:
 <br />
 
 En cada una de esas carpetas están las diferentes APIs de cada modelo
-
+----
 ### Usar como modelo del request en cada API para hacer cada operación
 
 **XXXXX = Club o Coach o Player**

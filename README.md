@@ -9,12 +9,10 @@ Ejecutar:
 Si está en entorno Windows instalar Xampp, Wampp o algo similar y ejecutarlo
 
 ### 03.- Instalar el aplicativo Postman
-Si está usando entorno Windows instalar el aplicativo Postman
-Lo puede bajar del sitio 
-<br />
-https://www.postman.com/downloads/
-<br />
-Y lo instala
+- Si está usando entorno Windows instalar el aplicativo Postman
+- Lo puede bajar del sitio 
+- https://www.postman.com/downloads/
+-  .... y lo instala
 ----
 
 ### 04.- Bajar el repositorio a su entorno local
@@ -24,22 +22,18 @@ Luego de eso, replicar el repositorio ejecutando:
 ***git clone https://github.com/manuelmra/laliga.git***
 
 ### 05.- Instalar las librerías que usa el sitio ##
-Ir a la carpeta **laliga**, que es donde se ha creado el sitio
+- Ir a la carpeta **laliga**, que es donde se ha creado el sitio
 **cd laliga**
-Este comando lee las librerías del archivo composer.json y las instala en la carpeta vendor
-Ejecutar
+- Este comando lee las librerías del archivo composer.json y las instala en la carpeta vendor
+- Ejecutar
 **composer install**
 
 ### 06.- Crear la BD, sus tablas y datos de prueba ##
-Ejecute los siguientes comandos
-<br />
-####- Crear la BD
-<br />
-**php bin/console doctrine:database:create
-
-####- Actualizar la BD: agregando las tablas y la data de prueba
-<br />
-**php bin/console doctrine:migrations:migrate**
+- Ejecute los siguientes comandos
+- ####- Crear la BD
+- **php bin/console doctrine:database:create**
+- ####- Actualizar la BD: agregando las tablas y la data de prueba
+- **php bin/console doctrine:migrations:migrate**
 
 ####- Correr el sitio en su entorno local
 **symfony server:start**

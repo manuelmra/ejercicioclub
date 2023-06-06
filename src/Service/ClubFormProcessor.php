@@ -8,6 +8,7 @@ use App\Service\ClubManager;
 use App\Form\Model\PlayerDto;
 use App\Form\Type\ClubFormType;
 use App\Service\PlayerManager;
+use App\Service\CoachManager;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -16,16 +17,19 @@ class ClubFormProcessor
 {
     private $clubManager;
     private $playerManager;
+    private $coachManager;
     private $formFactory;
 
     public function __construct(
         ClubManager $clubManager,
         PlayerManager $playerManager,
+        CoachManager $coachManager,
         FormFactoryInterface $formFactory
     )
     {
         $this->clubManager = $clubManager;
         $this->playerManager = $playerManager;
+        $this->coachManager = $coachManager;
         $this->formFactory = $formFactory;
         }
 
@@ -47,6 +51,16 @@ class ClubFormProcessor
         }
         if($form->isValid() )
         {
+            // Validating registered players
+            $registeredPlayers = $this->isPlayerRegistered($clubDto, $club);
+            if ($registeredPlayers['result']) {
+                return [null, $registeredPlayers['message']];
+            }
+
+            // Validating budget
+            if ($this->isOverBudget($clubDto)) {
+                return [null, 'The budget has been exceeded'];
+            }
             // Reemove players
             foreach($originalPlayers as $originalPlayerDto){
                 if(!in_array($originalPlayerDto, $clubDto->players)){
@@ -61,6 +75,7 @@ class ClubFormProcessor
                     if(!$player){
                         $player = $this->playerManager->create();
                         $player->setName($newPlayerDto->name);
+                        $player->setSalary($newPlayerDto->salary);
                         $this->playerManager->persist($player);
                     }
                     $club->addPlayer($player);
@@ -75,5 +90,64 @@ class ClubFormProcessor
             return [$club, null];
         }
         return [null, $form] ;
+    }
+
+    private function isOverBudget(clubDto $clubDto)
+    {
+        $totalSalaries = 0;
+        $coachSalary = 0;
+        $coachId = $clubDto->coach;
+        if ($coachId){
+            $coach = $this->coachManager->find($coachId);
+            $coachSalary = $coach->getSalary();
+        }
+        $totalSalaries += $coachSalary;
+        $budget = $clubDto->budget;
+        foreach($clubDto->players as $onePlayer)
+        {
+            if ($onePlayer->id){
+                $playerSalary = $this->playerManager->find($onePlayer->id)->getSalary();
+            } else{
+                $playerSalary = ($onePlayer->salary>0) ? $onePlayer->salary : 0;
+            }
+            $totalSalaries += $playerSalary;
+        }
+
+        if (($budget - $totalSalaries)>=0){
+            return 0;
+        } else{
+            return 1;
+        }
+    }
+
+    private function isPlayerRegistered(clubDto $clubDto, Club $club)
+    {
+        $clubId = $club->getId();
+        $finalText = '';
+        $result = 0;
+        foreach($clubDto->players as $onePlayer)
+        {
+            if ($onePlayer->id){
+                $playerClub = $this->playerManager->find($onePlayer->id)->getClub();
+                if (!empty($playerClub)){
+                    if((!empty($playerClub->getId())) && ($clubId !=$playerClub->getId())  ){
+                        $playerClub = ($this->playerManager->find($onePlayer->id))->getClub();
+                        $playerName = ($this->playerManager->find($onePlayer->id))->getName();
+                        $finalText .= 'Player id: ' . $onePlayer->id ." - " . $playerName . " - : " . $playerClub->getName() .' ** ' ;
+                    }
+                }
+            }
+        }
+        if ($finalText != '' ) $result = 1;
+        $playersRegistered = array(
+                                'result' => $result,
+                                'message' => $finalText
+                            );
+        return $playersRegistered;
+    }
+
+    private function isCoachRegistered(clubDto $clubDto)
+    {
+
     }
 }

@@ -6,5 +6,3 @@ App\Entity\Coach:
       groups: ['laliga']
     salary:
       groups: ['laliga']
-    club:
-      groups: ['laliga']

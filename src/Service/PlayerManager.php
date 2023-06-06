@@ -33,6 +33,12 @@ class PlayerManager
         return $player;
     }
 
+    public function persist(Player $player): Player
+    {
+        $this->em->persist($player);
+        return $player;
+    }
+
     public function save(Player $player): Player
     {
         $this->em->persist($player);

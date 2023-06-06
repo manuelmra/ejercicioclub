@@ -5,6 +5,8 @@ namespace App\Controller\Api;
 use App\Service\CoachManager;
 use App\Service\CoachFormProcessor;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 
@@ -18,6 +20,17 @@ class CoachController extends AbstractFOSRestController
         CoachManager $coachManager
     ) {
         return $coachManager->getRepository()->findAll();
+    }
+
+    /**
+     * @Rest\Get(path="/coach/{id}", requirements={"id"="\d+"})
+     * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
+     */
+    public function showAction(
+        int $id,
+        CoachManager $coachManager
+    ) {
+        return $coachManager->getRepository()->find($id);
     }
 
     /**

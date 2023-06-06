@@ -16,11 +16,7 @@ class PlayerFormType extends AbstractType
             ->add('id', TextType::class)
             ->add('name', TextType::class)
             ->add('salary', TextType::class)
-            ->add('club', TextType::class, [
-                'allow_add' => true,
-                'allow_delete' => true,
-                'entry_type' => ClubFormType::class
-            ])
+            ->add('club', TextType::class)
 			;
         ;
     }

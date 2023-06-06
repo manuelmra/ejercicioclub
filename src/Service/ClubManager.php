@@ -33,6 +33,12 @@ class ClubManager
         return $club;
     }
 
+    public function persist(Club $club): Club
+    {
+        $this->em->persist($club);
+        return $club;
+    }
+
     public function save(Club $club): Club
     {
         $this->em->persist($club);

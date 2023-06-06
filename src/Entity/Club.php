@@ -73,6 +73,17 @@ class Club
         return $this;
     }
 
+    public function getTotalSalaries(): int
+    {
+        $allPlayers = $this->getPlayers();
+        $totalSalaries = 0;
+        foreach($allPlayers as $onePlayer)
+        {
+            $totalSalaries += $onePlayer->getSalary();
+        }
+        return $totalSalaries;
+    }
+
     /**
      * @return Collection<int, Player>
      */

@@ -5,6 +5,8 @@ namespace App\Controller\Api;
 use App\Service\ClubManager;
 use App\Service\ClubFormProcessor;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 
@@ -18,6 +20,17 @@ class ClubController extends AbstractFOSRestController
         ClubManager $clubManager
     ) {
         return $clubManager->getRepository()->findAll();
+    }
+
+    /**
+     * @Rest\Get(path="/club/{id}", requirements={"id"="\d+"})
+     * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
+     */
+    public function showAction(
+        int $id,
+        ClubManager $clubManager
+    ) {
+        return $clubManager->getRepository()->find($id);
     }
 
     /**

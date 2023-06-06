@@ -34,14 +34,35 @@ class PlayerFormProcessor
         }
         if($form->isValid() )
         {
+            // Validating budget
+            if ($this->isOverBudget($playerDto, $player)) {
+                return [null, 'The budget has been exceeded'];
+            }
             $player->setName($playerDto->name);
             $player->setSalary($playerDto->salary);
-            $player->setClub($playerDto->club);
             $this->playerManager->save($player);
             $this->playerManager->reload($player);
             return [$player, null];
         }
         return [null, $form] ;
+    }
+
+    private function isOverBudget(PlayerDto $playerDto, Player $player)
+    {
+        $currentSalary = $player->getSalary();
+        $proposalSalary = $playerDto->salary;
+        $club = $player->getClub();
+        $result = 0;
+        if(!empty($club)){
+            $currentTotalSalaries = $club->getTotalSalaries();
+            $budget = $club->getBudget();
+            $proposalTotalSalaries = $currentTotalSalaries - ($currentSalary - $proposalSalary);
+            $budgerDifference = $budget - $proposalTotalSalaries;
+            if ($budgerDifference<0) {
+                $result = 1;
+            }
+        }
+        return $result;
     }
 }
 

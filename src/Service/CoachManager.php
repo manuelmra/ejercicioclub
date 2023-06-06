@@ -33,6 +33,12 @@ class CoachManager
         return $coach;
     }
 
+    public function persist(Coach $coach): Coach
+    {
+        $this->em->persist($coach);
+        return $coach;
+    }
+
     public function save(Coach $coach): Coach
     {
         $this->em->persist($coach);

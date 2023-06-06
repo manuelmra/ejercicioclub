@@ -35,14 +35,36 @@ class CoachFormProcessor
         }
         if($form->isValid() )
         {
+        // Validating budget
+            if ($this->isOverBudget($coachDto, $coach)) {
+                return [null, 'The budget has been exceeded'];
+            }
+
             $coach->setName($coachDto->name);
             $coach->setSalary($coachDto->salary);
-            $coach->setClub($coachDto->club);
             $this->coachManager->save($coach);
             $this->coachManager->reload($coach);
             return [$coach, null];
         }
         return [null, $form] ;
+    }
+
+    private function isOverBudget(CoachDto $coachDto, Coach $coach)
+    {
+        $currentSalary = $coach->getSalary();
+        $proposalSalary = $coachDto->salary;
+        $club = $coach->getClub();
+        $result = 0;
+        if(!empty($club)){
+            $currentTotalSalaries = $club->getTotalSalaries();
+            $budget = $club->getBudget();
+            $proposalTotalSalaries = $currentTotalSalaries - ($currentSalary - $proposalSalary);
+            $budgerDifference = $budget - $proposalTotalSalaries;
+            if ($budgerDifference<0) {
+                $result = 1;
+            }
+        }
+        return $result;
     }
 }
 

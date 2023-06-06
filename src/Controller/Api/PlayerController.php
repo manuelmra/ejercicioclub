@@ -5,6 +5,8 @@ namespace App\Controller\Api;
 use App\Service\PlayerManager;
 use App\Service\PlayerFormProcessor;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\View\View;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 
@@ -18,6 +20,17 @@ class PlayerController extends AbstractFOSRestController
         PlayerManager $playerManager
     ) {
         return $playerManager->getRepository()->findAll();
+    }
+
+    /**
+     * @Rest\Get(path="/player/{id}", requirements={"id"="\d+"})
+     * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
+     */
+    public function showAction(
+        int $id,
+        PlayerManager $playerManager
+    ) {
+        return $playerManager->getRepository()->find($id);
     }
 
     /**

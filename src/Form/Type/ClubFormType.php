@@ -17,11 +17,7 @@ class ClubFormType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('budget', TextType::class)
-            ->add('coach', TextType::class, [
-                'allow_add' => true,
-                'allow_delete' => true,
-                'entry_type' => CoachFormType::class
-            ])
+            ->add('coach', TextType::class)
             ->add('players', CollectionType::class, [
                 'allow_add' => true,
                 'allow_delete' => true,

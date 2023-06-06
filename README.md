@@ -34,7 +34,7 @@
 #### Actualizar la BD: agregando las tablas y la data de prueba
 - **php bin/console doctrine:migrations:migrate**
 
-- #### - Correr el sitio en su entorno local
+#### Correr el sitio en su entorno local
 - **symfony server:start**
 ----
 ### 07.- Instalar los APIs en su aplicativo Postman##
@@ -64,9 +64,11 @@ En cada una de esas carpetas están las diferentes APIs de cada modelo
 - ### **- Create XXXXX** 
 //Crea un nuevo registro del modelo indicado
 
+
 *** Player o Coach ***
 - Se colocan datos de ejemplo en raw del body con un formato json
 - No es necesario colocar el campo id
+
 
 *** Club ***
 - Tener en cuenta que se debe de usar el modelo indicado en el request: uso de índices de cada item a registrar

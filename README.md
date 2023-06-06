@@ -63,14 +63,15 @@ En cada una de esas carpetas están las diferentes APIs de cada modelo
 
 - ### **- Create XXXXX** 
 //Crea un nuevo registro del modelo indicado
+<br />
 
-
-*** Player o Coach ***
+### *** Player o Coach ***
 - Se colocan datos de ejemplo en raw del body con un formato json
 - No es necesario colocar el campo id
+<br />
 
 
-*** Club ***
+### *** Club ***
 - Tener en cuenta que se debe de usar el modelo indicado en el request: uso de índices de cada item a registrar
 - Si se quiere agregar un Player existente se coloca el id 
 - Si se quiere agregar un Player que todavía no está registrado no se pone el id pero si el resto de datos

@@ -17,21 +17,21 @@
 ### 04.- Bajar el repositorio a su entorno local
 - Si está usando Xampp o Wamp ubicarse en la carpeta htdocs.
 - Luego de eso, replicar el repositorio ejecutando:
+- *** git clone https://github.com/manuelmra/laliga.git ***
 
-***git clone https://github.com/manuelmra/laliga.git***
-
-### 05.- Instalar las librerías que usa el sitio ##
-- Ir a la carpeta **laliga**, que es donde se ha creado el sitio
+### 05.- Instalar las librerías que usa el sitio
+- Ir a la carpeta **laliga**, que es donde se ha creado el sitio ejecutando
 - **cd laliga**
 - Este comando lee las librerías del archivo composer.json y las instala en la carpeta vendor
 - Ejecutar
 - **composer install**
 
-### 06.- Crear la BD, sus tablas y datos de prueba ##
+### 06.- Crear la BD, sus tablas y datos de prueba
 - Ejecute los siguientes comandos
-- #### - Crear la BD
+<br />
+#### Crear la BD
 - **php bin/console doctrine:database:create**
-- #### - Actualizar la BD: agregando las tablas y la data de prueba
+#### Actualizar la BD: agregando las tablas y la data de prueba
 - **php bin/console doctrine:migrations:migrate**
 
 - #### - Correr el sitio en su entorno local
@@ -55,12 +55,12 @@ En cada una de esas carpetas están las diferentes APIs de cada modelo
 
 **XXXXX = Club o Coach o Player**
 
-- ### - Get All XXXXX**  
+- ### - Get All XXXXX
 //Lista los registros de ese modelo con sus respectivos campos
 - En este caso no necesita colocar ningún dato en el body
 ----
 
-- ### - Create XXXXX   
+- ### **- Create XXXXX** 
 //Crea un nuevo registro del modelo indicado
 *** Player o Coach ***
 - Se colocan datos de ejemplo en raw del body con un formato json
@@ -75,17 +75,20 @@ En cada una de esas carpetas están las diferentes APIs de cada modelo
 - También se valida si un Coach ya está registrado en un club.
 ----
 
-- ### **- Edit XXXXX**     //Edita o modifica el registro del modelo
+- ### **- Edit XXXXX**
+//Edita o modifica el registro del modelo
 - Modifica el registro del id indicado en los campos correspondientes
 - Si se omitiera algún campo obligatorio (como en el caso de la creación de nuevos players) le va a enviar un error
 - El campo name y salary son obligatorios. Si no se ponen datos le va a enviar un mensaje de error.
 ----
 
-- ### **- Show XXXXX**     //Muestra los datos del registro del modelo
+- ### **- Show XXXXX**
+//Muestra los datos del registro del modelo
 - Se muestran los campos de un determinado modelo (Player, Coach, Club) el id indicado
 ----
 
-- ### **- Drop XXXXX**     // Da de baja al Player o al Coach si estuviera registrado en algún club
+- ### **- Drop XXXXX**
+// Da de baja al Player o al Coach si estuviera registrado en algún club
 - Coloca el valor nulo en el campo club_id haciendo que ya no pertenezca al club.
 ----
 

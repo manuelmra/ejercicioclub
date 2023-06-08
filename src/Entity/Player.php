@@ -29,7 +29,7 @@ class Player
      *
      * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      *
@@ -37,7 +37,7 @@ class Player
      *
      * @ORM\Column(type="integer")
      */
-    private $salary;
+    private ?int $salary = null;
 
     /**
      *
@@ -45,7 +45,7 @@ class Player
      *
      * @ORM\ManyToOne(targetEntity=Club::class, inversedBy="players")
      */
-    private $club;
+    private ?\App\Entity\Club $club = null;
 
     public function getId(): ?int
     {

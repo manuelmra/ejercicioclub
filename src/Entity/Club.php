@@ -34,14 +34,14 @@ class Club
      *
      * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      *  The club's budget to pay the coach and the players
      *
      * @ORM\Column(type="integer")
      */
-    private $budget;
+    private ?int $budget = null;
 
     /**
      *
@@ -49,14 +49,14 @@ class Club
      *
      * @ORM\OneToMany(targetEntity=Player::class, mappedBy="club")
      */
-    private $players;
+    private \Doctrine\Common\Collections\ArrayCollection|array $players;
 
     /**
      *  The coach that the club has hired to direct the players
      *
      * @ORM\OneToOne(targetEntity=Coach::class, mappedBy="club", cascade={"persist", "remove"})
      */
-    private $coach;
+    private ?\App\Entity\Coach $coach = null;
 
     public function __construct()
     {
@@ -124,7 +124,6 @@ class Club
     /**
      * Add a new player to the club
      *
-     * @param Player $player
      * @return self
      */
     public function addPlayer(Player $player): self
@@ -140,7 +139,6 @@ class Club
     /**
      * Remove a player from the club
      *
-     * @param Player $player
      * @return self
      */
     public function removePlayer(Player $player): self
@@ -168,7 +166,6 @@ class Club
     /**
      * Assign a coach to the club
      *
-     * @param Coach|null $coach
      * @return self
      */
     public function setCoach(?Coach $coach): self

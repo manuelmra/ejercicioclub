@@ -15,12 +15,8 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
  */
 class CoachNormalizer implements ContextAwareNormalizerInterface
 {
-    private $normalizer;
-
-    public function __construct(
-        ObjectNormalizer $normalizer
-    ) {
-        $this->normalizer = $normalizer;
+    public function __construct(private readonly ObjectNormalizer $normalizer)
+    {
     }
 
     public function normalize($coach, $format = null, array $context = [])

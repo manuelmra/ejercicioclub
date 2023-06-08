@@ -22,11 +22,10 @@ class ClubDto{
 
     public $coach;
 
-    public $players;
+    public $players = [];
 
     public function __construct()
     {
-        $this->players = [];
     }
 
     public static function createFromClub(Club $club): self

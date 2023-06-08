@@ -29,7 +29,7 @@ class Coach
      *
      * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    private ?string $name = null;
 
     /**
      *
@@ -37,7 +37,7 @@ class Coach
      *
      * @ORM\Column(type="integer")
      */
-    private $salary;
+    private ?int $salary = null;
 
     /**
      *
@@ -45,7 +45,7 @@ class Coach
      *
      * @ORM\OneToOne(targetEntity=Club::class, inversedBy="coach", cascade={"persist", "remove"})
      */
-    private $club;
+    private ?\App\Entity\Club $club = null;
 
     public function getId(): ?int
     {

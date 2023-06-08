@@ -15,22 +15,17 @@ use Doctrine\ORM\EntityManagerInterface;
 class CoachManager
 {
     /**
-     * It's the coach entity manager
-     *
-     * @var EntityManagerInterface
-     */
-    private $em;
-
-    /**
      * It's the coach repository
      *
      * @var ClubRepository
      */
     private $coachRepository;
 
-    public function __construct(EntityManagerInterface $em, CoachRepository $coachRepository)
+    public function __construct(/**
+     * It's the coach entity manager
+     */
+    private readonly EntityManagerInterface $em, CoachRepository $coachRepository)
     {
-        $this->em = $em;
         $this->coachRepository = $coachRepository;
     }
 
@@ -63,7 +58,6 @@ class CoachManager
     /**
      * Allows to save temporary the data before saving definitely
      *
-     * @param Coach $coach
      * @return Coach
      */
     public function persist(Coach $coach): Coach
@@ -75,7 +69,6 @@ class CoachManager
     /**
      * It saves the data definitely
      *
-     * @param Coach $coach
      * @return Coach
      */
     public function save(Coach $coach): Coach
@@ -88,7 +81,6 @@ class CoachManager
     /**
      *  Refresh the data lately saved
      *
-     * @param Coach $coach
      * @return Coach
      */
     public function reload(Coach $coach): Coach
@@ -100,7 +92,6 @@ class CoachManager
     /**
      * Remove the record from the database
      *
-     * @param Coach $coach
      * @return void
      */
     public function delete(Coach $coach){

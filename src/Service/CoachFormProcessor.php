@@ -18,28 +18,18 @@ use Symfony\Component\Form\FormFactoryInterface;
  */
 class CoachFormProcessor
 {
-    /**
-     * The manager of the coach repository
-     *
-     * @var CoachManager
-     */
-    private $coachManager;
-
-    /**
-     * The form factory
-     *
-     * @var FormFactoryInterface
-     */
-    private $formFactory;
-
     public function __construct(
-        CoachManager $coachManager,
-        FormFactoryInterface $formFactory
+        /**
+         * The manager of the coach repository
+         */
+        private readonly CoachManager $coachManager,
+        /**
+         * The form factory
+         */
+        private readonly FormFactoryInterface $formFactory
     )
     {
-        $this->coachManager = $coachManager;
-        $this->formFactory = $formFactory;
-        }
+    }
 
     public function __invoke(Coach $coach, Request $request): array
     {

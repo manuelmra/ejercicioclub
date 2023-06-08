@@ -21,46 +21,26 @@ use Symfony\Component\Form\FormFactoryInterface;
  */
 class ClubFormProcessor
 {
-    /**
-     * The manager of the club
-     *
-     * @var ClubManager
-     */
-    private $clubManager;
-
-    /**
-     * The manager of the player
-     *
-     * @var PlayerManager
-     */
-    private $playerManager;
-
-    /**
-     * The manager of the CoaCH
-     *
-     * @var CoachManager
-     */
-    private $coachManager;
-
-    /**
-     * It¿s the forma factory
-     *
-     * @var FormFactoryInterface
-     */
-    private $formFactory;
-
     public function __construct(
-        ClubManager $clubManager,
-        PlayerManager $playerManager,
-        CoachManager $coachManager,
-        FormFactoryInterface $formFactory
+        /**
+         * The manager of the club
+         */
+        private readonly ClubManager $clubManager,
+        /**
+         * The manager of the player
+         */
+        private readonly PlayerManager $playerManager,
+        /**
+         * The manager of the CoaCH
+         */
+        private readonly CoachManager $coachManager,
+        /**
+         * It¿s the forma factory
+         */
+        private readonly FormFactoryInterface $formFactory
     )
     {
-        $this->clubManager = $clubManager;
-        $this->playerManager = $playerManager;
-        $this->coachManager = $coachManager;
-        $this->formFactory = $formFactory;
-        }
+    }
 
     public function __invoke(Club $club, Request $request): array
     {
@@ -202,10 +182,7 @@ class ClubFormProcessor
             }
         }
         if ($finalText != '' ) $result = 1;
-        $playersRegistered = array(
-                                'result' => $result,
-                                'message' => $finalText
-                            );
+        $playersRegistered = ['result' => $result, 'message' => $finalText];
         return $playersRegistered;
     }
 

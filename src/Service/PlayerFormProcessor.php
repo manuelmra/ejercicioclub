@@ -17,28 +17,18 @@ use Symfony\Component\Form\FormFactoryInterface;
  */
 class PlayerFormProcessor
 {
-    /**
-     * The manager of the player repository
-     *
-     * @var PlayerManager
-     */
-    private $playerManager;
-
-    /**
-     * The form factory
-     *
-     * @var FormFactoryInterface
-     */
-    private $formFactory;
-
     public function __construct(
-        PlayerManager $playerManager,
-        FormFactoryInterface $formFactory
+        /**
+         * The manager of the player repository
+         */
+        private readonly PlayerManager $playerManager,
+        /**
+         * The form factory
+         */
+        private readonly FormFactoryInterface $formFactory
     )
     {
-        $this->playerManager = $playerManager;
-        $this->formFactory = $formFactory;
-        }
+    }
 
     public function __invoke(Player $player, Request $request): array
     {

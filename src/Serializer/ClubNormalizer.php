@@ -15,12 +15,8 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
  */
 class ClubNormalizer implements ContextAwareNormalizerInterface
 {
-    private $normalizer;
-
-    public function __construct(
-        ObjectNormalizer $normalizer
-    ) {
-        $this->normalizer = $normalizer;
+    public function __construct(private readonly ObjectNormalizer $normalizer)
+    {
     }
 
     public function normalize($club, $format = null, array $context = [])

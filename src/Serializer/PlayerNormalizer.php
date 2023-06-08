@@ -15,12 +15,8 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
  */
 class PlayerNormalizer implements ContextAwareNormalizerInterface
 {
-    private $normalizer;
-
-    public function __construct(
-        ObjectNormalizer $normalizer
-    ) {
-        $this->normalizer = $normalizer;
+    public function __construct(private readonly ObjectNormalizer $normalizer)
+    {
     }
 
     public function normalize($player, $format = null, array $context = [])

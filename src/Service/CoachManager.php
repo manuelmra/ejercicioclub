@@ -58,6 +58,7 @@ class CoachManager
     /**
      * Allows to save temporary the data before saving definitely
      *
+     * @param Coach $coach
      * @return Coach
      */
     public function persist(Coach $coach): Coach
@@ -69,6 +70,7 @@ class CoachManager
     /**
      * It saves the data definitely
      *
+     * @param Coach $coach
      * @return Coach
      */
     public function save(Coach $coach): Coach
@@ -81,6 +83,7 @@ class CoachManager
     /**
      *  Refresh the data lately saved
      *
+     * @param Coach $coach
      * @return Coach
      */
     public function reload(Coach $coach): Coach
@@ -92,6 +95,7 @@ class CoachManager
     /**
      * Remove the record from the database
      *
+     * @param Coach $coach
      * @return void
      */
     public function delete(Coach $coach){

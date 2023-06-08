@@ -124,6 +124,8 @@ class Club
     /**
      * Add a new player to the club
      *
+     * @param Player $player
+     *
      * @return self
      */
     public function addPlayer(Player $player): self
@@ -138,6 +140,8 @@ class Club
 
     /**
      * Remove a player from the club
+     *
+     * @param Player $player
      *
      * @return self
      */
@@ -165,6 +169,8 @@ class Club
 
     /**
      * Assign a coach to the club
+     *
+     * @param Coach|null $coach
      *
      * @return self
      */

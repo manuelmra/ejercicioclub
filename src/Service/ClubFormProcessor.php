@@ -64,6 +64,9 @@ class ClubFormProcessor
             $registeredPlayers = $this->isCoachRegistered($clubDto, $club);
             if ($registeredPlayers) {
                 return [null, 'The coach is already registered in another club.'];
+            } else {
+                $coachId = (int)$clubDto->coach;
+                $clubDto->coach =  $this->coachManager->find($coachId);
             }
 
             // Validating registered players
@@ -98,7 +101,7 @@ class ClubFormProcessor
             }
             $club->setName($clubDto->name);
             $club->setBudget($clubDto->budget);
-            // $club->setCoach($clubDto->coach);
+            $club->setCoach($clubDto->coach);
             $this->clubManager->save($club);
             $this->clubManager->reload($club);
             return [$club, null];
@@ -119,7 +122,7 @@ class ClubFormProcessor
         $payroll = 0;
         // Find the current coach salary from the repository
         $coachSalary = 0;
-        $coachId = $clubDto->coach;
+        $coachId = $clubDto->coach->getId();
         if ($coachId){
             $coach = $this->coachManager->find($coachId);
             $coachSalary = $coach->getSalary();
@@ -196,44 +199,17 @@ class ClubFormProcessor
      * 1: registered  0: not registered
      */
     private function isCoachRegistered(clubDto $clubDto, Club $club)
-    {
-        $result = 0;
-        $proposalCoachId = (int) $clubDto->coach;
+    {        $coachId = (int) $clubDto->coach;
         $currentClubId = $club->getId();
-        $currentCoach = $club->getCoach();
-        // none coach assigned
-        if (empty($proposalCoachId)){
-            // echo 'no coach assigned';
-            return 0;
+        $result = 0;
+        $clubCoach = $this->coachManager->find($coachId)->getClub();
+        if (!empty($clubCoach)){
+            $clubCoachId = $this->coachManager->find($coachId)->getClub()->getId();
+            if($clubCoachId!=$currentClubId){
+                $result = 1;
+            }    
         }
-        // Find out the coach assigned club
-        $proposalCoachClub = $this->coachManager->find($proposalCoachId)->getClub();
-        $currentCoach = $club->getCoach();
-
-        if (empty($proposalCoachClub))
-        {
-            // The coach is not assigned
-            // echo 'The coach is not assigned';
-            // Unassign the current club coach
-            // $currentCoach = $club->getCoach();
-            if (!empty($currentCoach)){
-                // echo 'Unassign the current club coach';
-                $currentCoach->setClub(null);
-                $this->coachManager->persist($currentCoach);
-            }
-            return 0;
-        } else{
-            // Find out the current club coach and compare with the proposal
-            // echo 'Find out the current club coach';
-            if (!empty($currentCoach))
-            {
-                $currentCoachClub = $currentCoach->getClub();
-                if ($proposalCoachClub != $currentCoachClub){
-                    // echo 'The proposal club couch is different from current club';
-                    return 1;
-                }
-            }
-        }
+        
         return $result;
     }
 }

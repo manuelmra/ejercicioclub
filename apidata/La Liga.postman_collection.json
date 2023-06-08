@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "866b6145-8b85-4cf4-b702-a4890195c684",
-		"name": "La Liga",
+		"_postman_id": "ec82fcae-b816-4d0d-9676-7e2f9857c4be",
+		"name": "La Liga Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "5113767"
 	},
@@ -15,8 +15,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/clubs",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/clubs",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -39,7 +39,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Nuevo Club creado\",\r\n    \"budget\": 40000,\r\n    \"coach\": 3,\r\n    \"players\": {\r\n        \"0\": {\r\n            \"id\": 5,\r\n            \"name\": \"Alvaro Morata\"\r\n        },\r\n        \"1\": {\r\n            \"id\": 6,\r\n            \"name\": \"Sergio Busquets\"\r\n        },\r\n        \"2\": {\r\n            \"id\": 7,\r\n            \"name\": \"Jordi Alba\"\r\n        },\r\n        \"3\": {\r\n            \"name\": \"Dani Carvajal\",\r\n            \"salary\": 30000\r\n        }\r\n    }\r\n}",
+							"raw": "{\r\n    \"name\": \"Nuevo Club creado\",\r\n    \"budget\": 900000,\r\n    \"coach\": 3,\r\n    \"players\": {\r\n        \"0\": {\r\n            \"name\": \"Alvaro Morata\",\r\n            \"salary\": 30000\r\n        },\r\n        \"1\": {\r\n            \"name\": \"Sergio Busquets\",\r\n            \"salary\": 30000\r\n        },\r\n        \"2\": {\r\n            \"name\": \"Jordi Alba\",\r\n            \"salary\": 30000\r\n        },\r\n        \"3\": {\r\n            \"name\": \"Dani Carvajal\",\r\n            \"salary\": 30000\r\n        }\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -47,8 +47,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/club",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/club",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -79,8 +79,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/club/5",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/club/5",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -115,8 +115,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/club/5",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/club/5",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -144,8 +144,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/players",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/players",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -168,7 +168,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n        \"name\": \"Pau Torres\",\r\n        \"salary\": 25000\r\n    }",
+							"raw": "    {\r\n        \"name\": \"Pau Torres. 3\",\r\n        \"salary\": 25000\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -176,8 +176,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/player",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/player",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -200,7 +200,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n        \"name\": \"Ferran Torres\",\r\n        \"salary\": 70000\r\n    }",
+							"raw": "    {\r\n        \"name\": \"Ferran Torres. 11222\",\r\n        \"salary\": 70000\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,8 +208,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/player/13",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/playerupdate/13",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -219,7 +219,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"player",
+								"playerupdate",
 								"13"
 							]
 						}
@@ -244,8 +244,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/player/20",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/player/25",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -256,7 +256,7 @@
 							"path": [
 								"api",
 								"player",
-								"20"
+								"25"
 							]
 						}
 					},
@@ -277,8 +277,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/dropplayer/20",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/dropplayer/12",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -289,7 +289,7 @@
 							"path": [
 								"api",
 								"dropplayer",
-								"20"
+								"12"
 							]
 						}
 					},
@@ -306,8 +306,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/coachs",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/coachs",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -338,8 +338,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/coach",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/coach",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -370,8 +370,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/dropcoach/10",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/dropcoach/3",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -382,7 +382,7 @@
 							"path": [
 								"api",
 								"dropcoach",
-								"10"
+								"3"
 							]
 						}
 					},
@@ -395,7 +395,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n    \"name\": \"Julen Lopetegui Mas\",\r\n    \"salary\": 138000\r\n    }",
+							"raw": "    {\r\n    \"name\": \"Julen Lopetegui Mas y menos\",\r\n    \"salary\": 138000\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -403,8 +403,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/coach/2",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/coachupdate/2",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",
@@ -414,7 +414,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"coach",
+								"coachupdate",
 								"2"
 							]
 						}
@@ -439,8 +439,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://127.0.0.1:8000/api/coach/7",
-							"protocol": "https",
+							"raw": "http://127.0.0.1:8000/api/coach/7",
+							"protocol": "http",
 							"host": [
 								"127",
 								"0",

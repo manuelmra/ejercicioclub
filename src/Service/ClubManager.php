@@ -31,6 +31,7 @@ class ClubManager
     /**
      * Allows to find a club in the repository
      *
+     * @param integer $id
      * @return Club|null
      */
     public function find(int $id): ?Club
@@ -62,6 +63,7 @@ class ClubManager
     /**
      * Allows to save temporary the data before saving definitely
      *
+     * @param Club $club
      * @return Club
      */
     public function persist(Club $club): Club
@@ -73,6 +75,7 @@ class ClubManager
     /**
      * It saves the data definitely
      *
+     * @param Club $club
      * @return Club
      */
     public function save(Club $club): Club
@@ -85,6 +88,7 @@ class ClubManager
     /**
      *  Refresh the data lately saved
      *
+     * @param Club $club
      * @return Club
      */
     public function reload(Club $club): Club
@@ -96,6 +100,7 @@ class ClubManager
     /**
      * Remove the record from the database
      *
+     * @param Club $club
      * @return void
      */
     public function delete(Club $club){

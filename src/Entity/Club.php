@@ -49,7 +49,7 @@ class Club
      *
      * @ORM\OneToMany(targetEntity=Player::class, mappedBy="club")
      */
-    private \Doctrine\Common\Collections\ArrayCollection|array $players;
+    private \Doctrine\Common\Collections\Collection $players;
 
     /**
      *  The coach that the club has hired to direct the players

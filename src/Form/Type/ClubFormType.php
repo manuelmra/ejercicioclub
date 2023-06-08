@@ -10,6 +10,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
+/**
+ *
+ *  It builds all the fields of the club with its corresponding data type
+ * Undocumented class
+ */
 class ClubFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

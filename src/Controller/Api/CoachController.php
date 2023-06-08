@@ -13,6 +13,11 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 class CoachController extends AbstractFOSRestController
 {
     /**
+     *
+     * This action shows all the coachs with the following data:
+     *  - Name of the coach
+     *  - His salary
+     *
      * @Rest\Get(path="/coachs")
      * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
      */
@@ -23,6 +28,11 @@ class CoachController extends AbstractFOSRestController
     }
 
     /**
+     *
+     * This action shows only the data of one coach:
+     *  - Name of the coach
+     *  - His salary
+     *
      * @Rest\Get(path="/coach/{id}", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
      */
@@ -34,6 +44,11 @@ class CoachController extends AbstractFOSRestController
     }
 
     /**
+     *
+     * This action creates a coach.
+     *  - Name of the coach  -> Mandatory
+     *  - His salary         -> Mandatory
+     *
      * @Rest\Post(path="/coach")
      * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
      */
@@ -50,7 +65,13 @@ class CoachController extends AbstractFOSRestController
     }
 
     /**
-     * @Rest\Post(path="/coach/{id}", requirements={"id"="\d+"})
+     *
+     * This action modifies the fields of a coach.
+     *
+     *  - Name of the coach  -> Mandatory
+     *  - His salary         -> Mandatory
+     *
+     * @Rest\Post(path="/coachupdate/{id}", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
      */
     public function editAction(
@@ -70,6 +91,10 @@ class CoachController extends AbstractFOSRestController
    }
    
     /**
+     *
+     * This action removes a coach from a club.
+     *    It will set null in the club field of the coach table
+     *
      * @Rest\Post(path="/dropcoach/{id}", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"coach"}, serializerEnableMaxDepthChecks=true)
      */

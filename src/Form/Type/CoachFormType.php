@@ -8,6 +8,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+/**
+ *
+ *  It builds all the fields of the coach with its corresponding data type
+ * Undocumented class
+ */
 class CoachFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

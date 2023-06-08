@@ -6,6 +6,13 @@ use App\Entity\Coach;
 use Symfony\Component\Serializer\Normalizer\ContextAwareNormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
+/**
+ *
+ *  Normalizers turn objects into arrays and vice versa.
+ *  They implement NormalizerInterface for normalizing (object to array)
+ *  and DenormalizerInterface for denormalizing (array to object).
+ *
+ */
 class CoachNormalizer implements ContextAwareNormalizerInterface
 {
     private $normalizer;

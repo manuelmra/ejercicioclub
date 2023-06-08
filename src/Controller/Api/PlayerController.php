@@ -13,6 +13,11 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 class PlayerController extends AbstractFOSRestController
 {
     /**
+     *
+     * This action shows all the players with the following data:
+     *  - Name of the player
+     *  - His salary
+     *
      * @Rest\Get(path="/players")
      * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
      */
@@ -23,6 +28,11 @@ class PlayerController extends AbstractFOSRestController
     }
 
     /**
+     *
+     * This action shows only the data of one player:
+     *  - Name of the player
+     *  - His salary
+     *
      * @Rest\Get(path="/player/{id}", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
      */
@@ -34,6 +44,11 @@ class PlayerController extends AbstractFOSRestController
     }
 
     /**
+     *
+     * This action creates a player.
+     *  - Name of the player   -> Mandatory
+     *  - Its salary           -> Mandatory
+     *
      * @Rest\Post(path="/player")
      * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
      */
@@ -50,7 +65,12 @@ class PlayerController extends AbstractFOSRestController
     }
 
     /**
-     * @Rest\Post(path="/player/{id}", requirements={"id"="\d+"})
+     *
+     * This action modifies the fields of a player.
+     *  - Name of the player  -> Mandatory
+     *  - His salary          -> Mandatory
+     *
+     * @Rest\Post(path="/playerupdate/{id}", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"laliga"}, serializerEnableMaxDepthChecks=true)
      */
     public function editAction(
@@ -70,10 +90,14 @@ class PlayerController extends AbstractFOSRestController
    }
    
     /**
+     *
+     * This action removes a player from a club.
+     *    It will set null in the club field table
+     *
      * @Rest\Post(path="/dropplayer/{id}", requirements={"id"="\d+"})
      * @Rest\View(serializerGroups={"player"}, serializerEnableMaxDepthChecks=true)
      */
-    public function deleteAction(
+    public function dropAction(
         int $id,
         PlayerManager $playerManager,
         PlayerFormProcessor $playerFormProcessor,

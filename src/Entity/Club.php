@@ -8,11 +8,21 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ *
+ *   The club is the organization that play football
+ *   and contract players and a coach to participate
+ *   in a footballleague
+ *   It needs a budget to support the contracts it has
+ *   with the players and the coach
+ *
  * @ORM\Entity(repositoryClass=ClubRepository::class)
  */
 class Club
 {
     /**
+     *
+     *   It's the identifier of the club
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -20,21 +30,30 @@ class Club
     private $id;
 
     /**
+     *  The name of the club
+     *
      * @ORM\Column(type="string", length=100)
      */
     private $name;
 
     /**
+     *  The club's budget to pay the coach and the players
+     *
      * @ORM\Column(type="integer")
      */
     private $budget;
 
     /**
+     *
+     *  The collection of players the club has hired
+     *
      * @ORM\OneToMany(targetEntity=Player::class, mappedBy="club")
      */
     private $players;
 
     /**
+     *  The coach that the club has hired to direct the players
+     *
      * @ORM\OneToOne(targetEntity=Coach::class, mappedBy="club", cascade={"persist", "remove"})
      */
     private $coach;
@@ -73,6 +92,16 @@ class Club
         return $this;
     }
 
+    /**
+     *
+     *  This method allows to get all the payroll the club has:
+     *  - The players and the coach
+     *
+     *  It's used to calculate if the budget has been exceeded
+     *  - Creating or modifying a club
+     *  - Creating or modifying a player
+     *  - Creating or modifying a coach
+     */
     public function getTotalSalaries(): int
     {
         $allPlayers = $this->getPlayers();
@@ -92,6 +121,12 @@ class Club
         return $this->players;
     }
 
+    /**
+     * Add a new player to the club
+     *
+     * @param Player $player
+     * @return self
+     */
     public function addPlayer(Player $player): self
     {
         if (!$this->players->contains($player)) {
@@ -102,6 +137,12 @@ class Club
         return $this;
     }
 
+    /**
+     * Remove a player from the club
+     *
+     * @param Player $player
+     * @return self
+     */
     public function removePlayer(Player $player): self
     {
         if ($this->players->removeElement($player)) {
@@ -114,11 +155,22 @@ class Club
         return $this;
     }
 
+    /**
+     * Get the coach from the club
+     *
+     * @return Coach|null
+     */
     public function getCoach(): ?Coach
     {
         return $this->coach;
     }
 
+    /**
+     * Assign a coach to the club
+     *
+     * @param Coach|null $coach
+     * @return self
+     */
     public function setCoach(?Coach $coach): self
     {
         // unset the owning side of the relation if necessary

@@ -9,9 +9,26 @@ use App\Form\Type\PlayerFormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormFactoryInterface;
 
+/**
+ *
+ * Processes the data player from the form
+ * and if it successes save the data
+ *
+ */
 class PlayerFormProcessor
 {
+    /**
+     * The manager of the player repository
+     *
+     * @var PlayerManager
+     */
     private $playerManager;
+
+    /**
+     * The form factory
+     *
+     * @var FormFactoryInterface
+     */
     private $formFactory;
 
     public function __construct(
@@ -29,15 +46,20 @@ class PlayerFormProcessor
 
         $form = $this->formFactory->create(PlayerFormType::class, $playerDto);
         $form->handleRequest($request);
+
+        // Validate the form submitted
         if (!$form->isSubmitted()) {
             return [null, 'Form is not valid'];
         }
+
+        // Validate the form
         if($form->isValid() )
         {
             // Validating budget
             if ($this->isOverBudget($playerDto, $player)) {
                 return [null, 'The budget has been exceeded'];
             }
+            // Asigning values from DTO
             $player->setName($playerDto->name);
             $player->setSalary($playerDto->salary);
             $this->playerManager->save($player);
@@ -47,6 +69,15 @@ class PlayerFormProcessor
         return [null, $form] ;
     }
 
+    /**-
+     *  Validate if the payroll exceeds the budget
+     *
+     * @param PlayerDto $playerDto
+     * @param Player    $player
+     *
+     * @return int
+     * 1: exceeds budget  0: under budget
+     */
     private function isOverBudget(PlayerDto $playerDto, Player $player)
     {
         $currentSalary = $player->getSalary();

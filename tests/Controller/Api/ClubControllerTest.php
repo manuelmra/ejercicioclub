@@ -4,24 +4,24 @@ namespace App\tests\Controller\Api;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class PlayerControllerTest extends WebTestCase
+class ClubControllerTest extends WebTestCase
 {
-    public function testCreatePlayer()
+    public function testCreateClub()
     {
         $client = static::createClient();
 
-        $client->request('POST', '/api/player');
+        $client->request('POST', '/api/club');
     
         $this->assertResponseStatusCodeSame(400, $client->getResponse()->getStatusCode());
     }
 
-    public function testCreatePlayerInvalidData()
+    public function testCreateClubInvalidData()
     {
         $client = static::createClient();
  
         $client->request(
             'POST',
-            '/api/player',
+            '/api/club',
             [],
             [],
             ['CONTENT_TYPE' => 'application/json'],

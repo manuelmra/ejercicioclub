@@ -12,7 +12,7 @@ class PlayerControllerTest extends WebTestCase
 
         $client->request('POST', '/api/player');
     
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertResponseStatusCodeSame(400, $client->getResponse()->getStatusCode());
     }
 
     public function testCreatePlayerInvalidData()
@@ -27,7 +27,7 @@ class PlayerControllerTest extends WebTestCase
             ['CONTENT_TYPE' => 'application/json'],
             ''
         );
-        $this->assertEquals(400, $client->getResponse()->getStatusCode());
+        $this->assertResponseStatusCodeSame(400, $client->getResponse()->getStatusCode());
     }    
 }
 

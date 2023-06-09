@@ -24,7 +24,7 @@
 - **cd laliga**
 - Este comando lee las librerías del archivo composer.json y las instala en la carpeta vendor
 - Ejecutar
-- **composer install**
+- **composer update**
 
 ### 06.- Crear la BD, sus tablas y datos de prueba
 - Ejecute los siguientes comandos

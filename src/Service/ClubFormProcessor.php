@@ -122,10 +122,12 @@ class ClubFormProcessor
         $payroll = 0;
         // Find the current coach salary from the repository
         $coachSalary = 0;
-        $coachId = $clubDto->coach->getId();
-        if ($coachId){
-            $coach = $this->coachManager->find($coachId);
-            $coachSalary = $coach->getSalary();
+        if (!empty($clubDto->coach)){
+            $coachId = $clubDto->coach->getId();
+            if (!empty($coachId)){
+                $coach = $this->coachManager->find($coachId);
+                $coachSalary = $coach->getSalary();
+            }
         }
         // Add coach salary to the payroll
         $payroll += $coachSalary;
@@ -199,17 +201,19 @@ class ClubFormProcessor
      * 1: registered  0: not registered
      */
     private function isCoachRegistered(clubDto $clubDto, Club $club)
-    {        $coachId = (int) $clubDto->coach;
-        $currentClubId = $club->getId();
+    {
         $result = 0;
-        $clubCoach = $this->coachManager->find($coachId)->getClub();
-        if (!empty($clubCoach)){
-            $clubCoachId = $this->coachManager->find($coachId)->getClub()->getId();
-            if($clubCoachId!=$currentClubId){
-                $result = 1;
-            }    
+        $coachId = (int) $clubDto->coach;
+        if(!(empty($coachId))) {
+            $currentClubId = $club->getId();
+            $clubCoach = $this->coachManager->find($coachId)->getClub();
+            if (!empty($clubCoach)){
+                $clubCoachId = $this->coachManager->find($coachId)->getClub()->getId();
+                if($clubCoachId!=$currentClubId){
+                    $result = 1;
+                }    
+            }
         }
-        
         return $result;
     }
 }

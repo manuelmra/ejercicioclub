@@ -1,6 +1,6 @@
 ## Pasos para poder replicar en el entorno local el sitio
 
-### 01.- Validar que tiene PHP 7.4 o mayor
+### 01.- Validar que tiene PHP 8.0 o mayor
 - Ejecutar:
 - **php -v**
 

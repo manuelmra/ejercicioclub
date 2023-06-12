@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+    db:
+        platform: linux/x86_64/v8 
+    #image: mysql:8.0.20
+        image: mysql:8.0.33-oracle
+        volumes:
+            - "db_clubs:/var/lib/mysql"
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        ports:
+            - 3306:3306
+        networks:
+            - symfony
+    php:
+        build:
+            context: ./php
+            args:
+                TIMEZONE: ${TIMEZONE}
+        volumes:
+            - clubsback_app_sync:/var/www/clubs/
+        networks:
+            - symfony
+    nginx:
+        build:
+            context: ./nginx
+        volumes:
+            - clubsback_app_sync:/var/www/clubs/
+        ports:
+            - 80:80
+        networks:
+            - symfony
+
+volumes:
+    clubsback_app_sync:
+    db_clubs:
+
+networks:
+    symfony:

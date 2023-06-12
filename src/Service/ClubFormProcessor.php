@@ -66,7 +66,10 @@ class ClubFormProcessor
                 return [null, 'The coach is already registered in another club.'];
             } else {
                 $coachId = (int)$clubDto->coach;
-                $clubDto->coach =  $this->coachManager->find($coachId);
+                $clubDto->coach = null;
+                if (!empty($coachId)){
+                    $clubDto->coach =  $this->coachManager->find($coachId);
+                }            
             }
 
             // Validating registered players
